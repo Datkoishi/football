@@ -1,0 +1,3275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS CHAMPIONS 2025 | Hội thao Trường Đào tạo Quốc tế</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-dark: #0d1b69;
+            --primary-light: #534bae;
+            --secondary: #ff5722;
+            --secondary-dark: #e64a19;
+            --secondary-light: #ff8a65;
+            --accent: #ffc107;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #4caf50;
+            --info: #03a9f4;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --body-bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --header-bg: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            --footer-bg: #0d1b69;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--body-bg);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--primary-dark);
+            padding: 8px 0;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent);
+        }
+
+        .navbar {
+            background: var(--header-bg);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--accent);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: 5px;
+            left: 15px;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: calc(100% - 30px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero .btn {
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .countdown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* News Section */
+        .news-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .news-excerpt {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* Groups Section */
+        .groups-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .group-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .group-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .group-header {
+            background: var(--header-bg);
+            color: white;
+            padding: 15px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .group-header::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -75px;
+            right: -75px;
+        }
+
+        .group-body {
+            padding: 0;
+        }
+
+        .team-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .team-item:last-child {
+            border-bottom: none;
+        }
+
+        .team-item:hover {
+            background-color: rgba(26, 35, 126, 0.05);
+        }
+
+        .team-logo {
+            width: 30px;
+            height: 30px;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .team-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        /* Schedule Section */
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .schedule-tab {
+            padding: 10px 20px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .schedule-tab:hover {
+            background-color: rgba(26, 35, 126, 0.1);
+            color: var(--primary);
+        }
+
+        .schedule-tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .schedule-content {
+            display: none;
+        }
+
+        .schedule-content.active {
+            display: block;
+        }
+
+        .day-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .day-header {
+            background: var(--header-bg);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .day-header i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .match-item {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .match-item:last-child {
+            border-bottom: none;
+        }
+
+        .match-item:hover {
+            background-color: rgba(26, 35, 126, 0.05);
+        }
+
+        .match-info {
+            flex: 2;
+            min-width: 250px;
+        }
+
+        .match-stage {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .match-stage i {
+            margin-right: 5px;
+            color: var(--secondary);
+        }
+
+        .match-teams {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .team-logo-small {
+            width: 25px;
+            height: 25px;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+
+        .vs {
+            margin: 0 10px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .match-details {
+            display: flex;
+            flex: 1;
+            min-width: 200px;
+            justify-content: flex-end;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .match-time, .match-venue {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .match-time i, .match-venue i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .match-venue {
+            background-color: rgba(26, 35, 126, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* Knockout Bracket */
+        .bracket-container {
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .bracket {
+            display: flex;
+            justify-content: space-between;
+            min-width: 900px;
+        }
+
+        .bracket-round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 220px;
+        }
+
+        .bracket-round-title {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .bracket-match {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .bracket-match::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 20px;
+            height: 2px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .bracket-round:last-child .bracket-match::after {
+            display: none;
+        }
+
+        .bracket-team {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .bracket-team:last-child {
+            border-bottom: none;
+        }
+
+        .bracket-team-logo {
+            width: 25px;
+            height: 25px;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+
+        .bracket-team-name {
+            flex: 1;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .bracket-team-score {
+            font-weight: 700;
+            width: 25px;
+            text-align: center;
+            background-color: rgba(26, 35, 126, 0.1);
+            border-radius: 4px;
+            padding: 2px 0;
+        }
+
+        /* Prizes Section */
+        .prizes-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prizes-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.1;
+        }
+
+        .prize-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .prize-header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .prize-header.gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+            color: #5D4037;
+        }
+
+        .prize-header.silver {
+            background: linear-gradient(135deg, #E0E0E0 0%, #BDBDBD 100%);
+            color: #424242;
+        }
+
+        .prize-header.bronze {
+            background: linear-gradient(135deg, #D7CCC8 0%, #A1887F 100%);
+            color: #3E2723;
+        }
+
+        .prize-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .prize-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        .prize-content {
+            padding: 20px;
+        }
+
+        .prize-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .prize-item i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* Sponsors Section */
+        .sponsors {
+            background-color: white;
+            padding: 50px 0;
+        }
+
+        .sponsors-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .sponsor-item {
+            max-width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-item:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .sponsor-item img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Event Info Section */
+        .event-info {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-header {
+            background: var(--header-bg);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-header i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-content {
+            padding: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .info-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .info-text p {
+            margin-bottom: 0;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .footer-logo span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Animations and Effects */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .countdown-number {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .countdown-container {
+                flex-wrap: wrap;
+            }
+            .countdown-item {
+                min-width: 70px;
+            }
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .match-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .match-details {
+                margin-top: 15px;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .countdown-item {
+                min-width: 60px;
+            }
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span><i class="fas fa-envelope me-2"></i>doanviendtqt.dtu@gmail.com</span>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#"><i class="fas fa-phone-alt me-1"></i> Liên hệ</a>
+                    <a href="#"><i class="fas fa-question-circle me-1"></i> Hỗ trợ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://imgur.com/zhnLw3s.png" alt="Logo">
+                <span>IS CHAMPIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#groups">Bảng đấu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schedule">Lịch thi đấu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#prizes">Giải thưởng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#knockout">Vòng loại trực tiếp</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content">
+                    <h1 data-aos="fade-up" data-aos-delay="100">IS CHAMPIONS 2025</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Hội thao IS Champions Trường Đào tạo Quốc tế năm 2025. Nơi tài năng tỏa sáng và niềm đam mê được thăng hoa.</p>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <a href="#schedule" class="btn btn-primary me-3">Xem lịch thi đấu</a>
+                        <a href="#groups" class="btn btn-secondary">Các bảng đấu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h3>KHỞI TRANH SAU</h3>
+                </div>
+                <div class="col-12">
+                    <div class="countdown-container">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Ngày</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Giờ</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Phút</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Giây</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Info Section -->
+    <section class="event-info" id="event-info">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Thông tin giải đấu</h2>
+                <p>Thông tin chi tiết về Hội thao IS Champions 2025</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="fas fa-calendar-alt"></i>
+                            Thời gian
+                        </div>
+                        <div class="info-content">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Bốc thăm thi đấu</h4>
+                                    <p>Ngày 06 tháng 03 năm 2025</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-calendar-day"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Thời gian tổ chức</h4>
+                                    <p>Từ ngày 08/03/2025 - 16/03/2025</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Bế mạc và trao giải thưởng</h4>
+                                    <p>18g00 Chủ nhật, ngày 16/03/2025</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Thời gian thi đấu</h4>
+                                    <p>Các buổi tối từ thứ Hai đến Thứ bảy và cả ngày Chủ nhật. Thời gian thi đấu cụ thể từng môn sẽ được thông báo trong buổi họp bốc thăm.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Địa điểm
+                        </div>
+                        <div class="info-content">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-futbol"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Bóng Đá</h4>
+                                    <p>Sân bóng đá Trưng Vương, 403 Trưng Nữ Vương</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Thông tin liên hệ</h4>
+                                    <p>Email: doanviendtqt.dtu@gmail.com</p>
+                                    <p>Hotline: +84 123 456 789</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section" id="news">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Tin tức & Thông báo</h2>
+                <p>Cập nhật những thông tin mới nhất về giải đấu</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lễ khai mạc">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt me-2"></i>05/03/2025</span>
+                            <h3 class="news-title">Lễ khai mạc IS CHAMPIONS 2025</h3>
+                            <p class="news-excerpt">Lễ khai mạc giải đấu sẽ được tổ chức vào ngày 08/03/2025 với nhiều hoạt động hấp dẫn và các tiết mục văn nghệ đặc sắc.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card">
+                        <div class="badge-new">Mới</div>
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bốc thăm chia bảng">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt me-2"></i>01/03/2025</span>
+                            <h3 class="news-title">Kết quả bốc thăm chia bảng</h3>
+                            <p class="news-excerpt">Ban tổ chức đã tiến hành bốc thăm chia bảng cho 28 đội tham dự. Kết quả chi tiết đã được công bố.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luật thi đấu">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="far fa-calendar-alt me-2"></i>25/02/2025</span>
+                            <h3 class="news-title">Điều lệ và luật thi đấu</h3>
+                            <p class="news-excerpt">Ban tổ chức công bố điều lệ và luật thi đấu chính thức của giải IS CHAMPIONS 2025.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Xem tất cả tin tức</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="prizes-section" id="prizes">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Giải thưởng</h2>
+                <p>Các giải thưởng hấp dẫn dành cho đội chiến thắng</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="prize-card">
+                        <div class="prize-header gold">
+                            <div class="prize-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3 class="prize-title">Giải Nhất</h3>
+                        </div>
+                        <div class="prize-content">
+                            <div class="prize-item">
+                                <i class="fas fa-flag"></i>
+                                <span>Cờ lưu niệm</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Cúp vô địch</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-medal"></i>
+                                <span>Huy chương</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Tiền thưởng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="prize-card">
+                        <div class="prize-header silver">
+                            <div class="prize-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3 class="prize-title">Giải Nhì</h3>
+                        </div>
+                        <div class="prize-content">
+                            <div class="prize-item">
+                                <i class="fas fa-flag"></i>
+                                <span>Cờ lưu niệm</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-medal"></i>
+                                <span>Huy chương</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Tiền thưởng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="prize-card">
+                        <div class="prize-header bronze">
+                            <div class="prize-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h3 class="prize-title">Giải Ba</h3>
+                        </div>
+                        <div class="prize-content">
+                            <div class="prize-item">
+                                <i class="fas fa-flag"></i>
+                                <span>Cờ lưu niệm</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-medal"></i>
+                                <span>Huy chương</span>
+                            </div>
+                            <div class="prize-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Tiền thưởng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Groups Section -->
+    <section class="section bg-light" id="groups">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Các bảng đấu</h2>
+                <p>7 bảng đấu với 28 đội tham dự</p>
+            </div>
+            <div class="groups-container">
+                <!-- Bảng A -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="group-header">Bảng A</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">K29</div>
+                            <div class="team-name">K29 BUSINESS ADMINISTRATION PSU</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">KT</div>
+                            <div class="team-name">Kim Thạch FC</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">UU</div>
+                            <div class="team-name">Unique United</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">T3</div>
+                            <div class="team-name">TPM3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng B -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="group-header">Bảng B</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">TT1</div>
+                            <div class="team-name">K29CMU-TTT1</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">SB</div>
+                            <div class="team-name">SBTC</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">K30</div>
+                            <div class="team-name">K30 Tpm3-Cmu</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">QNH</div>
+                            <div class="team-name">K29 PSU QNH</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng C -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="group-header">Bảng C</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">TG</div>
+                            <div class="team-name">Thánh Gióng</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">TP6</div>
+                            <div class="team-name">K29-CMUTPM6</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">QT2</div>
+                            <div class="team-name">K30-QTH2</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">XDD</div>
+                            <div class="team-name">K30 CSU XDD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng D -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="group-header">Bảng D</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">GW</div>
+                            <div class="team-name">Golden wings</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">WF</div>
+                            <div class="team-name">WALL FC</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">T67</div>
+                            <div class="team-name">CMU TPM 67</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">VS</div>
+                            <div class="team-name">Victory Stars</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng E -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="group-header">Bảng E</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">ADP</div>
+                            <div class="team-name">ADP</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">FK</div>
+                            <div class="team-name">FINAL KICK FC</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">T17</div>
+                            <div class="team-name">K29CMU-TPM17</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">SF</div>
+                            <div class="team-name">Silver Fox</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng F -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="group-header">Bảng F</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">K28</div>
+                            <div class="team-name">K28CMU-TAM</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">IT</div>
+                            <div class="team-name">ITIS</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">TA</div>
+                            <div class="team-name">The Allies</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">T10</div>
+                            <div class="team-name">CMU-TPM10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng G -->
+                <div class="group-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="group-header">Bảng G</div>
+                    <div class="group-body">
+                        <div class="team-item">
+                            <div class="team-logo">TT2</div>
+                            <div class="team-name">K29-CMUTT2</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">TAM</div>
+                            <div class="team-name">TAM</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">ST</div>
+                            <div class="team-name">FC Sao Trẻ</div>
+                        </div>
+                        <div class="team-item">
+                            <div class="team-logo">TT1</div>
+                            <div class="team-name">K30-TTT1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section" id="schedule">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Lịch thi đấu</h2>
+                <p>Lịch thi đấu chi tiết của giải IS CHAMPIONS 2025</p>
+            </div>
+            <div class="schedule-tabs" data-aos="fade-up">
+                <button class="schedule-tab active" data-tab="group-stage">Vòng bảng</button>
+                <button class="schedule-tab" data-tab="playoff">Vòng playoff</button>
+                <button class="schedule-tab" data-tab="quarterfinals">Tứ kết</button>
+                <button class="schedule-tab" data-tab="semifinals">Bán kết</button>
+                <button class="schedule-tab" data-tab="finals">Chung kết</button>
+            </div>
+
+           <!-- Vòng bảng -->
+<div class="schedule-content active" id="group-stage">
+    <h3 class="text-center mb-4">VÒNG BẢNG</h3>
+    
+    <!-- VÒNG 1 -->
+    <div class="round-title">
+        <h4 class="text-center mb-3">VÒNG 1</h4>
+    </div>
+    
+    <!-- Ngày 12/3 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 12/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng A</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K29</div>
+                        K29 BUSINESS ADMINISTRATION PSU
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">KT</div>
+                        KIM THACH FC
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng D</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">GW</div>
+                        GOLDEN WINGS
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">WF</div>
+                        WALL FC
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng C</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TG</div>
+                        THÁNH GIÓNG
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TP6</div>
+                        K29-CMUTPM6
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng F</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K28</div>
+                        K28CMU-TAM
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">IT</div>
+                        ITIS
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 13/3 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 13/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng G</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TT2</div>
+                        K29-CMUTT2
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TAM</div>
+                        TAM
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng A</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">UU</div>
+                        UNIQUE UNITED
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T3</div>
+                        TPM3
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng F</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TA</div>
+                        THE ALLIES
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T10</div>
+                        CMU-TPM10
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng G</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">ST</div>
+                        FC SAO TRẺ
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TT1</div>
+                        K30-TTT1
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng D</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">T67</div>
+                        CMU TPM 67
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">VS</div>
+                        VICTORY STARS
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng E</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">T17</div>
+                        K29CMU-TPM17
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">SF</div>
+                        SILVER FOX
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 14/3 - Vòng 1 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 14/3/2025 (Vòng 1)
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng C</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">QT2</div>
+                        K30-QTH2
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">XDD</div>
+                        K30 CSU XDD
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng E</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">ADP</div>
+                        ADP
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">FK</div>
+                        FINAL KICK FC
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng B</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K30</div>
+                        K30 TPM3-CMU
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">QNH</div>
+                        K29 PSU QNH
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng B</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TT1</div>
+                        K29CMU-TTT1
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">SB</div>
+                        SBTC
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VÒNG 2 -->
+    <div class="round-title">
+        <h4 class="text-center mb-3 mt-5">VÒNG 2</h4>
+    </div>
+
+    <!-- Ngày 14/3 - Vòng 2 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 14/3/2025 (Vòng 2)
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng A</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K29</div>
+                        K29 BUSINESS ADMINISTRATION PSU
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">UU</div>
+                        UNIQUE UNITED
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng B</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TT1</div>
+                        K29CMU-TTT1
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">K30</div>
+                        K30 TPM3-CMU
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng A</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">KT</div>
+                        KIM THACH FC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T3</div>
+                        TPM3
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng F</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K28</div>
+                        K28CMU-TAM
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TA</div>
+                        THE ALLIES
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng G</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TT2</div>
+                        K29-CMUTT2
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">ST</div>
+                        FC SAO TRẺ
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng B</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">SB</div>
+                        SBTC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">QNH</div>
+                        K29 PSU QNH
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 15/3 - Vòng 2 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 15/3/2025 (Vòng 2)
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng F</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">IT</div>
+                        ITIS
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T10</div>
+                        CMU-TPM10
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng G</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TAM</div>
+                        TAM
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TT1</div>
+                        K30-TTT1
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng C</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TG</div>
+                        THÁNH GIÓNG
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">QT2</div>
+                        K30-QTH2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        18h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng E</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">ADP</div>
+                        ADP
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T17</div>
+                        K29CMU-TPM17
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng C</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TP6</div>
+                        K29-CMUTPM6
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">XDD</div>
+                        K30 CSU XDD
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng D</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">WF</div>
+                        WALL FC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">VS</div>
+                        VICTORY STARS
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng E</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">FK</div>
+                        FINAL KICK FC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">SF</div>
+                        SILVER FOX
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng D</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">GW</div>
+                        GOLDEN WINGS
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T67</div>
+                        CMU TPM 67
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VÒNG 3 -->
+    <div class="round-title">
+        <h4 class="text-center mb-3 mt-5">VÒNG 3</h4>
+    </div>
+
+    <!-- Ngày 15/3 - Vòng 3 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 15/3/2025 (Vòng 3)
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng A</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">KT</div>
+                        KIM THACH FC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">UU</div>
+                        UNIQUE UNITED
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng B</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TT1</div>
+                        K29CMU-TTT1
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">QNH</div>
+                        K29 PSU QNH
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng F</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K28</div>
+                        K28CMU-TAM
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T10</div>
+                        CMU-TPM10
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 16/3 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 16/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng C</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TG</div>
+                        THÁNH GIÓNG
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">XDD</div>
+                        K30 CSU XDD
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng D</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">GW</div>
+                        GOLDEN WINGS
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">VS</div>
+                        VICTORY STARS
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng E</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">ADP</div>
+                        ADP
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">SF</div>
+                        SILVER FOX
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng G</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TT2</div>
+                        K29-CMUTT2
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TT1</div>
+                        K30-TTT1
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng A</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">K29</div>
+                        K29 BUSINESS ADMINISTRATION PSU
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T3</div>
+                        TPM3
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng B</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">SB</div>
+                        SBTC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">K30</div>
+                        K30 TPM3-CMU
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng C</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TP6</div>
+                        K29-CMUTPM6
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">QT2</div>
+                        K30-QTH2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 17/3 -->
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 17/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng D</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">WF</div>
+                        WALL FC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">T67</div>
+                        CMU TPM 67
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng E</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">FK</div>
+                        FINAL KICK FC
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">TA</div>
+                        THE ALLIES
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng F</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">IT</div>
+                        ITIS
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">SF</div>
+                        SILVER FOX
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bảng G</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">TAM</div>
+                        TAM
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">ST</div>
+                        FC SAO TRẺ
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vòng playoff -->
+<div class="schedule-content" id="playoff">
+    <h3 class="text-center mb-4">VÒNG LOẠI TRỰC TIẾP</h3>
+    <div class="round-title">
+        <h4 class="text-center mb-3">VÒNG PLAYOFF (8 đội)</h4>
+    </div>
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 17/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Playoff 1</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">A1</div>
+                        Nhất bảng A
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">X1</div>
+                        Đội xuất sắc 1
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Playoff 2</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">B1</div>
+                        Nhất bảng B
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">X2</div>
+                        Đội xuất sắc 2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Playoff 3</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">C1</div>
+                        Nhất bảng C
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">X3</div>
+                        Đội xuất sắc 3
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Playoff 4</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">D1</div>
+                        Nhất bảng D
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">X4</div>
+                        Đội xuất sắc 4
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân D
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tứ kết -->
+<div class="schedule-content" id="quarterfinals">
+    <div class="round-title">
+        <h4 class="text-center mb-3">TỨ KẾT (8 đội)</h4>
+    </div>
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 18/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Tứ kết 1</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">E1</div>
+                        Nhất bảng E
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">P1</div>
+                        Người thắng Playoff 1
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Tứ kết 2</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">F1</div>
+                        Nhất bảng F
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">P2</div>
+                        Người thắng Playoff 2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Tứ kết 3</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">G1</div>
+                        Nhất bảng G
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">P3</div>
+                        Người thắng Playoff 3
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Tứ kết 4</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">X5</div>
+                        Đội xuất sắc 5
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">P4</div>
+                        Người thắng Playoff 4
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bán kết -->
+<div class="schedule-content" id="semifinals">
+    <div class="round-title">
+        <h4 class="text-center mb-3">BÁN KẾT (4 đội)</h4>
+    </div>
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 20/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bán kết 1</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">Q1</div>
+                        Người thắng Tứ kết 1
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">Q2</div>
+                        Người thắng Tứ kết 2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân B
+                    </div>
+                </div>
+            </div>
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Bán kết 2</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">Q3</div>
+                        Người thắng Tứ kết 3
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">Q4</div>
+                        Người thắng Tứ kết 4
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân C
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chung kết -->
+<div class="schedule-content" id="finals">
+    <div class="round-title">
+        <h4 class="text-center mb-3">TRANH HẠNG 3/4 (2 đội)</h4>
+    </div>
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 22/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Tranh hạng 3/4</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">S1</div>
+                        Người thua Bán kết 1
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">S2</div>
+                        Người thua Bán kết 2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        19h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="round-title">
+        <h4 class="text-center mb-3 mt-4">CHUNG KẾT (2 đội)</h4>
+    </div>
+    <div class="day-card">
+        <div class="day-header">
+            <i class="far fa-calendar-alt"></i>
+            Ngày 22/3/2025
+        </div>
+        <div class="matches-container">
+            <div class="match-item">
+                <div class="match-info">
+                    <div class="match-stage"><i class="fas fa-trophy"></i> Chung kết</div>
+                    <div class="match-teams">
+                        <div class="team-logo-small">S1</div>
+                        Người thắng Bán kết 1
+                        <span class="vs">vs</span>
+                        <div class="team-logo-small">S2</div>
+                        Người thắng Bán kết 2
+                    </div>
+                </div>
+                <div class="match-details">
+                    <div class="match-time">
+                        <i class="far fa-clock"></i>
+                        20h30
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Sân A
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Knockout Bracket Section -->
+    <section class="section bg-light" id="knockout">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Vòng loại trực tiếp</h2>
+                <p>Sơ đồ vòng loại trực tiếp của giải đấu</p>
+            </div>
+            <div class="bracket-container" data-aos="fade-up">
+                <div class="bracket">
+                    <div class="bracket-round">
+                        <div class="bracket-round-title">Vòng Playoff</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">A1</div>
+                                <div class="bracket-team-name">Nhất bảng A</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">X1</div>
+                                <div class="bracket-team-name">Đội xuất sắc 1</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">B1</div>
+                                <div class="bracket-team-name">Nhất bảng B</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">X2</div>
+                                <div class="bracket-team-name">Đội xuất sắc 2</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">C1</div>
+                                <div class="bracket-team-name">Nhất bảng C</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">X3</div>
+                                <div class="bracket-team-name">Đội xuất sắc 3</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">D1</div>
+                                <div class="bracket-team-name">Nhất bảng D</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">X4</div>
+                                <div class="bracket-team-name">Đội xuất sắc 4</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bracket-round">
+                        <div class="bracket-round-title">Tứ kết</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">E1</div>
+                                <div class="bracket-team-name">Nhất bảng E</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">P1</div>
+                                <div class="bracket-team-name">Người thắng P1</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">F1</div>
+                                <div class="bracket-team-name">Nhất bảng F</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">P2</div>
+                                <div class="bracket-team-name">Người thắng P2</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">G1</div>
+                                <div class="bracket-team-name">Nhất bảng G</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">P3</div>
+                                <div class="bracket-team-name">Người thắng P3</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">X5</div>
+                                <div class="bracket-team-name">Đội xuất sắc 5</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">P4</div>
+                                <div class="bracket-team-name">Người thắng P4</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bracket-round">
+                        <div class="bracket-round-title">Bán kết</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">Q1</div>
+                                <div class="bracket-team-name">Người thắng Q1</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">Q2</div>
+                                <div class="bracket-team-name">Người thắng Q2</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">Q3</div>
+                                <div class="bracket-team-name">Người thắng Q3</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">Q4</div>
+                                <div class="bracket-team-name">Người thắng Q4</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bracket-round">
+                        <div class="bracket-round-title">Chung kết</div>
+                        <div class="bracket-match">
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">S1</div>
+                                <div class="bracket-team-name">Người thắng S1</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                            <div class="bracket-team">
+                                <div class="bracket-team-logo">S2</div>
+                                <div class="bracket-team-name">Người thắng S2</div>
+                                <div class="bracket-team-score">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Nhà tài trợ</h2>
+                <p>Các đơn vị đồng hành cùng giải đấu</p>
+            </div>
+            <div class="sponsors-container">
+                <div class="sponsor-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/150x80?text=Sponsor+1" alt="Sponsor 1">
+                </div>
+                <div class="sponsor-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/150x80?text=Sponsor+2" alt="Sponsor 2">
+                </div>
+                <div class="sponsor-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/150x80?text=Sponsor+3" alt="Sponsor 3">
+                </div>
+                <div class="sponsor-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/150x80?text=Sponsor+4" alt="Sponsor 4">
+                </div>
+                <div class="sponsor-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://via.placeholder.com/150x80?text=Sponsor+5" alt="Sponsor 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="https://imgur.com/zhnLw3s.png" alt="Logo">
+                        <span>IS CHAMPIONS</span>
+                    </div>
+                    <div class="footer-about">
+                        <p>Hội thao IS Champions Trường Đào tạo Quốc tế năm 2025 là sân chơi thể thao lớn nhất của Khoa Đào tạo Quốc tế, nơi tài năng và đam mê hội tụ.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h4 class="footer-heading">Liên kết</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Trang chủ</a></li>
+                        <li><a href="#news"><i class="fas fa-chevron-right"></i> Tin tức</a></li>
+                        <li><a href="#groups"><i class="fas fa-chevron-right"></i> Bảng đấu</a></li>
+                        <li><a href="#schedule"><i class="fas fa-chevron-right"></i> Lịch thi đấu</a></li>
+                        <li><a href="#knockout"><i class="fas fa-chevron-right"></i> Vòng loại trực tiếp</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <h4 class="footer-heading">Thông tin</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Điều lệ giải đấu</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Luật thi đấu</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Hình thức đăng ký</a></li>
+                        <li><a href="#prizes"><i class="fas fa-chevron-right"></i> Giải thưởng</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Nhà tài trợ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Liên hệ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Khoa Đào tạo Quốc tế, TP. Đà Nẵng</a></li>
+                        <li><a href="#"><i class="fas fa-phone-alt"></i> +84 123 456 789</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> doanviendtqt.dtu@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>© 2025 IS CHAMPIONS. Bản quyền thuộc về Khoa Đào tạo Quốc tế.</p>
+                <p class="mt-2">Designed & Developed by <a href="https://truongdat.glitch.me/" target="_blank" class="developer-link">truongdat</a></p>
+            </div>
+        </div>
+        <style>
+            .developer-link {
+    color: var(--secondary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.developer-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+        </style>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+       // Countdown Timer
+function updateCountdown() {
+    // Đặt thời gian đích là 8:30 sáng ngày 12/3/2025 theo giờ Việt Nam (UTC+7)
+    const targetDate = new Date('March 12, 2025 08:30:00 GMT+0700').getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    // Tính toán ngày, giờ, phút, giây
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    // Hiển thị kết quả với số 0 đứng trước nếu cần
+    document.getElementById('days').innerHTML = days < 10 ? '0' + days : days;
+    document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+    
+    // Nếu đã đến hoặc qua thời gian đích
+    if (difference < 0) {
+        document.getElementById('days').innerHTML = '00';
+        document.getElementById('hours').innerHTML = '00';
+        document.getElementById('minutes').innerHTML = '00';
+        document.getElementById('seconds').innerHTML = '00';
+    }
+}
+
+// Cập nhật đồng hồ mỗi giây
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+        // Schedule Tabs
+        const scheduleTabs = document.querySelectorAll('.schedule-tab');
+        const scheduleContents = document.querySelectorAll('.schedule-content');
+
+        scheduleTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                scheduleTabs.forEach(t => t.classList.remove('active'));
+                scheduleContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar active state on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
