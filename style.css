@@ -1021,3 +1021,87 @@ footer {
         font-size: 1.8rem;
     }
 }
+/* Responsive navbar fixes */
+@media (max-width: 576px) {
+  /* Make the navbar brand smaller on mobile */
+  .navbar-brand img {
+    height: 40px;
+  }
+  
+  .navbar-brand span {
+    font-size: 1.2rem;
+  }
+  
+  /* Make the nav links more compact */
+  .navbar-nav .nav-link {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* Adjust the navbar padding */
+  .navbar {
+    padding: 10px 0;
+  }
+  
+  /* Fix for dropdown menu */
+  .navbar-collapse {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  /* Make the toggle button smaller */
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 360px) {
+  .navbar-brand img {
+    height: 35px;
+  }
+  
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+}
+
+/* Hero buttons responsive CSS for mobile devices */
+@media (max-width: 576px) {
+  /* Add proper spacing between hero buttons on mobile */
+  .hero .btn {
+    margin-right: 8px;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Ensure buttons have enough space and don't wrap awkwardly */
+  .hero [data-aos-delay="300"] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Remove the default margin that might cause issues */
+  .hero .btn.me-3 {
+    margin-right: 0 !important;
+  }
+}
+
+/* For very small screens, make buttons more prominent */
+@media (max-width: 360px) {
+  .hero [data-aos-delay="300"] {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero .btn {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    margin-right: 0;
+  }
+}

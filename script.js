@@ -5,37 +5,38 @@
     once: true
 });
 
-// Countdown Timer
-function updateCountdown() {
-// Đặt thời gian đích là 8:30 sáng ngày 12/3/2025 theo giờ Việt Nam (UTC+7)
-const targetDate = new Date('March 12, 2025 08:30:00 GMT+0700').getTime();
-const now = new Date().getTime();
-const difference = targetDate - now;
+// Set the target date: April 19, 2025 at 20:00 Vietnam time (UTC+7)
+const targetDate = new Date('2025-04-19T20:00:00+07:00').getTime();
 
-// Tính toán ngày, giờ, phút, giây
-const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-// Hiển thị kết quả với số 0 đứng trước nếu cần
-document.getElementById('days').innerHTML = days < 10 ? '0' + days : days;
-document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
-document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
-document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
-
-// Nếu đã đến hoặc qua thời gian đích
-if (difference < 0) {
-document.getElementById('days').innerHTML = '00';
-document.getElementById('hours').innerHTML = '00';
-document.getElementById('minutes').innerHTML = '00';
-document.getElementById('seconds').innerHTML = '00';
-}
-}
-
-// Cập nhật đồng hồ mỗi giây
-setInterval(updateCountdown, 1000);
-updateCountdown();
+// Update the countdown every second
+const countdownTimer = setInterval(function() {
+    // Get current date and time
+    const now = new Date().getTime();
+    
+    // Calculate the time remaining
+    const timeRemaining = targetDate - now;
+    
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+    // Display the result
+    document.getElementById("days").textContent = days < 10 ? '0' + days : days;
+    document.getElementById("hours").textContent = hours < 10 ? '0' + hours : hours;
+    document.getElementById("minutes").textContent = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById("seconds").textContent = seconds < 10 ? '0' + seconds : seconds;
+    
+    // If the countdown is over, display a message
+    if (timeRemaining < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+    }
+}, 1000);
 
 // Schedule Tabs
 const scheduleTabs = document.querySelectorAll('.schedule-tab');
